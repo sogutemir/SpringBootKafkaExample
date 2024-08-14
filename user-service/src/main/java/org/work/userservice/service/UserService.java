@@ -1,11 +1,12 @@
 package org.work.userservice.service;
 
-import org.work.userservice.dto.UserDto;
+import org.work.userservice.model.User;
+
 import java.util.List;
 
 public interface UserService {
-    List<UserDto> getAllUsers();
-    UserDto getUserById(Long id);
-    UserDto createUser(UserDto userDto);
+    List<User> getAllUsers();
+    User getUserById(Long id);
+    User createUser(User userDto);
     void deleteUser(Long id);
 }

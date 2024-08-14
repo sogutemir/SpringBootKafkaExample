@@ -1,14 +1,12 @@
 package org.work.notificationservice.service;
 
-import org.work.notificationservice.dto.NotificationDto;
+import org.work.notificationservice.model.Notification;
 
 import java.util.List;
 
 public interface NotificationService {
-
-    List<NotificationDto> getAllNotifications();
-    NotificationDto getNotificationById(Long id);
-    NotificationDto createNotification(NotificationDto notificationDto);
+    List<Notification> getAllNotifications();
+    Notification getNotificationById(Long id);
+    Notification createNotification(Notification notification);
     void deleteNotification(Long id);
-
 }

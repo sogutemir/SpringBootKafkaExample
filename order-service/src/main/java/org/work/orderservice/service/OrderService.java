@@ -1,12 +1,13 @@
 package org.work.orderservice.service;
 
-import org.work.orderservice.dto.OrderDto;
+
+import org.work.orderservice.model.Order;
 
 import java.util.List;
 
 public interface OrderService {
-    List<OrderDto> getAllOrders();
-    OrderDto getOrderById(Long id);
-    OrderDto createOrder(OrderDto orderDto);
+    List<Order> getAllOrders();
+    Order getOrderById(Long id);
+    Order createOrder(Order order);
     void deleteOrder(Long id);
 }
