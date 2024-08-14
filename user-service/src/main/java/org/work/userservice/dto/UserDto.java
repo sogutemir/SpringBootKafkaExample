@@ -5,7 +5,7 @@ import lombok.Value;
 import java.io.Serializable;
 
 /**
- * DTO for {@link org.work.userservice.entity.User}
+ * DTO for {@link org.work.userservice.model.User}
  */
 @Value
 public class UserDto implements Serializable {

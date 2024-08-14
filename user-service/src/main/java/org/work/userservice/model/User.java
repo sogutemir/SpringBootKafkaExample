@@ -1,4 +1,4 @@
-package org.work.userservice.entity;
+package org.work.userservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;

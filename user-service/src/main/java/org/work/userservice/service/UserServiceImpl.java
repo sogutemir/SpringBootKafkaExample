@@ -3,7 +3,7 @@ package org.work.userservice.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.work.userservice.dto.UserDto;
-import org.work.userservice.entity.User;
+import org.work.userservice.model.User;
 import org.work.userservice.mapper.UserMapper;
 import org.work.userservice.repository.UserRepository;
 

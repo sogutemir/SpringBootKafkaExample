@@ -2,7 +2,7 @@ package org.work.userservice.mapper;
 
 import org.mapstruct.*;
 import org.work.userservice.dto.UserDto;
-import org.work.userservice.entity.User;
+import org.work.userservice.model.User;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper {
