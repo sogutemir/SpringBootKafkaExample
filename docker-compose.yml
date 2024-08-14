@@ -117,8 +117,70 @@ services:
     networks:
       - kafka-net
 
+  kong-database:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: kong
+      POSTGRES_DB: kong
+      POSTGRES_PASSWORD: kong
+    ports:
+      - "5433:5432"
+    networks:
+      - kafka-net
+
+  kong-migration:
+    image: kong:2.3
+    depends_on:
+      - kong-database
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_PASSWORD: kong
+      KONG_CASSANDRA_CONTACT_POINTS: kong-database
+    command: ["kong", "migrations", "bootstrap"]
+    networks:
+      - kafka-net
+
+  kong:
+    image: kong:2.3
+    depends_on:
+      - kong-database
+      - kong-migration
+      - kafkalogging-service
+      - user-service
+      - order-service
+      - notification-service
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_PASSWORD: kong
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+    networks:
+      - kafka-net
+
+  konga:
+    image: pantsel/konga:latest
+    ports:
+      - "1337:1337"
+    environment:
+      NODE_ENV: production
+      KONGA_HOOK_TIMEOUT: 120000
+      TOKEN_SECRET: somesecretkey
+    networks:
+      - kafka-net
+
 volumes:
   postgres-data:
 
 networks:
   kafka-net:
+    driver: bridge
