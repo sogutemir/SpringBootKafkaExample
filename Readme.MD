@@ -105,44 +105,6 @@ The architecture consists of multiple microservices communicating via Kafka topi
 - **Producer Configuration:** Defined in `KafkaProducerConfig.java`.
 - **Consumer Configuration:** Defined in `KafkaConsumerConfig.java`.
 
-## API Endpoints
-
-### Order Service API
-
-- **Create Order:**
-  ```http
-  POST /orders
-  {
-      "userId": 7,
-      "quantity": 2,
-      "item": "Test"
-  }
-  ```
-- **Get All Orders:**
-
-  ```http
-  GET /orders
-  ```
-
-- **Get Order by ID:**
-
-  ```http
-  GET /orders/{id}
-  ```
-
-- **Delete Order:**
-  ```http
-  DELETE /orders/{id}
-  ```
-
-### User Service API
-
-- **Endpoints:** Similar to the Order Service with CRUD operations for user entities.
-
-### Notification Service API
-
-- **Endpoints:** For managing notifications based on consumed messages from Kafka.
-
 ## Logging
 
 Each service logs important events to the `log_topic` on Kafka. This setup allows for centralized logging and monitoring.
