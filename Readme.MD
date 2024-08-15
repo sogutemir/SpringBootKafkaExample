@@ -112,7 +112,3 @@ Each service logs important events to the `log_topic` on Kafka. This setup allow
 ## Conclusion
 
 This project showcases the integration of Kafka with multiple Spring Boot microservices to create a centralized communication hub. By following the setup instructions, you can run the project locally and observe how the microservices interact via Kafka topics.
-
----
-
-This README provides a comprehensive overview of the project, its architecture, and the steps to set it up. For detailed information on each microservice and additional configurations, refer to the individual service documentation.
