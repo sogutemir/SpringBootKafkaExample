@@ -116,12 +116,3 @@ This project showcases the integration of Kafka with multiple Spring Boot micros
 ---
 
 This README provides a comprehensive overview of the project, its architecture, and the steps to set it up. For detailed information on each microservice and additional configurations, refer to the individual service documentation.
-
-## GitHub Links
-
-- **GitHub Profile:** [sogutemir](https://github.com/sogutemir)
-- **Repository:** [SpringBootKafkaExample](https://github.com/sogutemir/SpringBootKafkaExample)
-
-```
-
-```
